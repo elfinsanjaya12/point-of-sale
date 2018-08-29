@@ -1,2 +1,9 @@
 Pertama ekstrak file ini, terus import databasenya 'db_pro1.sql' ke database yang kemaren 'db_pro1'.
 terus jalanin kayak biasa, masuk ke folder file yang udah di ekstrak tadi terus tekan 'SHiFT' jangan dilepas lalu 'Click Kanan' lalu pilih 'Open Command Window here' terus ketik di terminal/cmd nya 'php artisan serve'.
+
+Daftar Akun
+
+1. penjaga : penjaga
+2. pemilik: pemiliktoko
+3. penjaga_agal : penjaga
+

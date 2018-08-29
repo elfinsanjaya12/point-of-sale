@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.6
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2018 at 08:31 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.1.12
+-- Generation Time: Aug 23, 2018 at 02:39 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -51,14 +51,13 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id`, `idbarang_unit`, `idbarang_kategori`, `kode_barang`, `nama_barang`, `harga_beli`, `harga_jual`, `stok`, `diskon`, `harga_jual_akhir`, `description`, `created_at`, `createdby`, `updated_at`, `updatedby`) VALUES
-(22, 3, 11, 'BRG-0001', 'Mie Sedaap Rasa Kare', 1200, 1500, 0, '0', 1500, '', '2018-03-16 16:14:58', 'penjaga', '2018-03-16 16:14:58', 'Penjaga'),
-(23, 3, 11, 'BRG-0002', 'Indomie Rasa Soto', 1200, 1500, 20, '0', 1500, '', '2018-03-18 09:22:25', 'penjaga', '2018-03-18 09:22:25', 'Penjaga'),
-(24, 3, 11, 'BRG-0003', 'Mie Sedaap Rasa Ayam Bawang', 1200, 1500, 5, '0', 1500, '', '2018-03-18 09:22:26', 'penjaga', '2018-03-18 09:22:26', 'Penjaga'),
-(25, 3, 27, 'BRG-0004', 'Aqua Botol 1500 ML', 4500, 5000, -1, '5', 4750, '', '2018-03-19 03:33:57', 'penjaga', '2018-03-19 03:33:57', 'Penjaga'),
-(26, 2, 14, 'BRG-0005', 'Kapal Api Special Mix', 800, 1000, 0, '0', 0, '', '2018-03-16 15:44:58', 'penjaga', '2016-05-20 05:25:25', 'penjaga'),
-(31, 5, 7, 'BRG-0006', 'Kispray', 4700, 5000, 0, '0', 5000, NULL, '2018-03-16 16:17:44', 'penjaga', '2018-03-16 16:17:44', 'Penjaga'),
-(32, 5, 36, 'BRG-0007', 'Sepeda MX 250', 450000, 500000, -7, '0', 500000, NULL, '2018-03-19 03:33:57', NULL, '2018-03-19 03:33:57', 'Penjaga'),
-(33, 5, 36, 'BRG-0008', 'Boneka Barbie XL', 450000, 600000, 0, '0', 600000, NULL, '2018-03-16 16:16:33', 'Penjaga', '2018-03-16 16:16:33', 'Penjaga');
+(22, 3, 11, 'BRG-0001', 'Mie Sedaap Rasa Kare', 1200, 1500, 5, '0', 1500, '', '2018-08-21 00:16:13', 'penjaga', '2018-08-21 00:16:13', 'Penjaga'),
+(23, 3, 11, 'BRG-0002', 'Indomie Rasa Soto', 1200, 1500, 5, '0', 1500, '', '2018-08-21 00:16:13', 'penjaga', '2018-08-21 00:16:13', 'Penjaga'),
+(24, 3, 11, 'BRG-0003', 'Mie Sedaap Rasa Ayam Bawang', 1200, 1500, 55, '5', 1425, '', '2018-08-21 00:16:14', 'penjaga', '2018-08-21 00:16:14', 'Penjaga'),
+(25, 3, 27, 'BRG-0004', 'Aqua Botol 1500 ML', 4500, 5000, 55, '5', 4750, '', '2018-08-21 00:16:14', 'penjaga', '2018-08-21 00:16:14', 'Penjaga'),
+(26, 2, 14, 'BRG-0005', 'Kapal Api Special Mix', 800, 1000, 5, '0', 0, '', '2018-08-21 00:16:14', 'penjaga', '2018-08-21 00:16:14', 'penjaga'),
+(31, 5, 7, 'BRG-0006', 'Kispray', 4700, 5000, 0, '0', 5000, NULL, '2018-08-20 11:47:26', 'penjaga', '2018-03-16 16:17:44', 'Penjaga'),
+(32, 5, 36, 'BRG-0007', 'Sepeda MX 250', 450000, 500000, 1, '0', 500000, NULL, '2018-08-21 00:46:58', NULL, '2018-08-21 00:46:58', 'Penjaga');
 
 -- --------------------------------------------------------
 
@@ -135,10 +134,12 @@ CREATE TABLE `barang_persediaans` (
 --
 
 INSERT INTO `barang_persediaans` (`id`, `id_barang`, `id_supplier`, `detail`, `tanggal_beli`, `tanggal_jual`, `stok_beli`, `stok_jual`, `updated_at`, `created_at`, `createdby`, `updatedby`) VALUES
-(1, 32, 4, NULL, '2018-03-18', '2018-03-19', 3, 2, '2018-03-19 03:33:57', '2018-03-18 09:22:25', 'Penjaga', NULL),
-(2, 23, 4, NULL, '2018-03-18', NULL, 20, NULL, '2018-03-18 09:22:25', '2018-03-18 09:22:25', 'Penjaga', NULL),
-(3, 24, 4, NULL, '2018-03-18', NULL, 5, NULL, '2018-03-18 09:22:26', '2018-03-18 09:22:26', 'Penjaga', NULL),
-(4, 25, 4, NULL, NULL, '2018-03-19', NULL, 1, '2018-03-19 03:33:57', '2018-03-19 03:33:57', 'Penjaga', NULL);
+(11, 22, 4, NULL, '2018-08-21', '2018-08-21', 205, 200, '2018-08-21 00:16:13', '2018-08-20 11:58:13', 'Penjaga', NULL),
+(12, 23, 4, NULL, '2018-08-21', '2018-08-21', 205, 200, '2018-08-21 00:16:14', '2018-08-20 11:58:13', 'Penjaga', NULL),
+(13, 24, 4, NULL, '2018-08-21', '2018-08-21', 205, 150, '2018-08-21 00:16:14', '2018-08-20 11:58:13', 'Penjaga', NULL),
+(14, 25, 4, NULL, '2018-08-21', '2018-08-21', 205, 150, '2018-08-21 00:16:14', '2018-08-20 11:58:14', 'Penjaga', NULL),
+(15, 26, 4, NULL, '2018-08-21', '2018-08-20', 105, 100, '2018-08-21 00:16:14', '2018-08-20 11:58:14', 'Penjaga', NULL),
+(19, 32, 4, NULL, '2018-08-21', '2018-08-21', 2, 1, '2018-08-21 00:46:59', '2018-08-21 00:46:35', 'Penjaga', NULL);
 
 -- --------------------------------------------------------
 
@@ -199,7 +200,8 @@ INSERT INTO `config` (`idconfig`, `key`, `value`, `created`, `createdby`, `updat
 (3, 'store_name', 'Toko POS Aisyah', '2016-05-03 00:00:00', 'System', NULL, NULL),
 (4, 'store_description', 'Jl. Raya Indonesia Raya Merdeka', '2016-05-03 00:00:00', 'System', NULL, NULL),
 (5, 'prefix_kode_pembelian', 'PB/TA/', NULL, NULL, NULL, NULL),
-(6, 'prefix_kode_kas', 'KAS/TA/', NULL, NULL, NULL, NULL);
+(6, 'prefix_kode_kas', 'KAS/TA/', NULL, NULL, NULL, NULL),
+(7, 'prefix_supplier', 'SUP', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -210,10 +212,11 @@ INSERT INTO `config` (`idconfig`, `key`, `value`, `created`, `createdby`, `updat
 CREATE TABLE `kas` (
   `id` int(10) UNSIGNED NOT NULL,
   `kode_kas` varchar(100) DEFAULT NULL,
+  `id_pembelian` int(11) UNSIGNED DEFAULT NULL,
   `id_penjualan` int(11) UNSIGNED DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
   `keterangan` varchar(100) DEFAULT NULL,
-  `ref` varchar(100) DEFAULT NULL,
+  `ref` varchar(100) NOT NULL,
   `debit` int(15) DEFAULT NULL,
   `kredit` int(15) DEFAULT NULL,
   `saldo` int(20) DEFAULT NULL,
@@ -227,8 +230,17 @@ CREATE TABLE `kas` (
 -- Dumping data for table `kas`
 --
 
-INSERT INTO `kas` (`id`, `kode_kas`, `id_penjualan`, `tanggal`, `keterangan`, `ref`, `debit`, `kredit`, `saldo`, `updated_at`, `created_at`, `createdby`, `updatedby`) VALUES
-(1, 'KAS/TA/0001', 1, '2018-03-19', 'Penjualan Tunai', NULL, 1004750, 1004750, 1004750, '2018-03-18 21:46:48', '2018-03-18 21:46:48', 'Penjaga', NULL);
+INSERT INTO `kas` (`id`, `kode_kas`, `id_pembelian`, `id_penjualan`, `tanggal`, `keterangan`, `ref`, `debit`, `kredit`, `saldo`, `updated_at`, `created_at`, `createdby`, `updatedby`) VALUES
+(7, 'KAS/TA/0006', 9, NULL, '2018-08-20', 'Pembelian Tunai', 'PB/TA/0009', 0, 890000, 578450, '2018-08-20 11:58:12', '2018-08-20 11:58:12', 'Penjaga', NULL),
+(8, 'KAS/TA/0007', NULL, 10, '2018-08-20', 'Penjualan Tunai', 'PJ/TA/0010', 270000, 0, 848450, '2018-08-20 12:12:52', '2018-08-20 12:12:52', 'Penjaga', NULL),
+(9, 'KAS/TA/0008', NULL, 11, '2018-08-20', 'Penjualan Tunai', 'PJ/TA/0011', 555750, 0, 1404200, '2018-08-20 23:40:43', '2018-08-20 23:40:43', 'Penjaga', NULL),
+(10, 'KAS/TA/0009', 10, NULL, '2018-08-20', 'Pembelian Tunai', 'PB/TA/0010', 0, 360000, 1044200, '2018-08-20 23:54:05', '2018-08-20 23:54:05', 'Penjaga', NULL),
+(11, 'KAS/TA/0010', 11, NULL, '2018-08-21', 'Pembelian Tunai', 'PB/TA/0011', 0, 450000, 594200, '2018-08-21 00:04:42', '2018-08-21 00:04:42', 'Penjaga', NULL),
+(12, 'KAS/TA/0011', NULL, 12, '2018-08-21', 'Penjualan Tunai', 'PJ/TA/0012', 300000, 0, 894200, '2018-08-21 00:11:06', '2018-08-21 00:11:06', 'Penjaga', NULL),
+(13, 'KAS/TA/0012', NULL, 13, '2018-08-21', 'Penjualan Tunai', 'PJ/TA/0013', 308750, 0, 1202950, '2018-08-21 00:14:28', '2018-08-21 00:14:28', 'Penjaga', NULL),
+(14, 'KAS/TA/0013', 12, NULL, '2018-08-21', 'Pembelian Tunai', 'PB/TA/0012', 0, 44500, 1158450, '2018-08-21 00:16:13', '2018-08-21 00:16:13', 'Penjaga', NULL),
+(15, 'KAS/TA/0014', 13, NULL, '2018-08-21', 'Pembelian Tunai', 'PB/TA/0013', 0, 900000, 258450, '2018-08-21 00:46:35', '2018-08-21 00:46:35', 'Penjaga', NULL),
+(16, 'KAS/TA/0015', NULL, 14, '2018-08-21', 'Penjualan Tunai', 'PJ/TA/0014', 500000, 0, 758450, '2018-08-21 00:46:58', '2018-08-21 00:46:58', 'Penjaga', NULL);
 
 -- --------------------------------------------------------
 
@@ -290,7 +302,19 @@ CREATE TABLE `pembelians` (
 --
 
 INSERT INTO `pembelians` (`id`, `kode_pembelian`, `id_supplier`, `tanggal`, `total_harga_beli`, `total_bayar`, `total_kembalian`, `tipe_pembayaran`, `status`, `updated_at`, `created_at`, `createdby`, `updatedby`) VALUES
-(1, 'PB/TA/0001', 4, '2018-03-18', 1380000, 1400000, 20000, 'cash', 'OK', '2018-03-18 09:22:25', '2018-03-18 09:22:25', 'Penjaga', NULL);
+(1, 'PB/TA/0001', 4, '2018-03-18', 1380000, 1400000, 20000, 'cash', 'OK', '2018-03-18 09:22:25', '2018-03-18 09:22:25', 'Penjaga', NULL),
+(2, 'PB/TA/0002', 4, '2018-08-10', 4500000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-10 07:49:00', '2018-08-10 07:49:00', 'Penjaga', NULL),
+(3, 'PB/TA/0003', 4, '2018-08-10', 2274000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-10 08:35:20', '2018-08-10 08:35:20', 'Penjaga', NULL),
+(4, 'PB/TA/0004', 4, '2018-08-10', 2274000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-10 08:36:49', '2018-08-10 08:36:49', 'Penjaga', NULL),
+(5, 'PB/TA/0005', 4, '2018-08-10', 2274000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-10 08:37:55', '2018-08-10 08:37:55', 'Penjaga', NULL),
+(6, 'PB/TA/0006', 4, '2018-08-10', 24000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-10 08:38:35', '2018-08-10 08:38:35', 'Penjaga', NULL),
+(7, 'PB/TA/0007', 4, '2018-08-18', 16800, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-18 00:14:41', '2018-08-18 00:14:41', 'Penjaga', NULL),
+(8, 'PB/TA/0008', 4, '2018-08-20', 890000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-20 11:49:34', '2018-08-20 11:49:34', 'Penjaga', NULL),
+(9, 'PB/TA/0009', 4, '2018-08-20', 890000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-20 11:58:12', '2018-08-20 11:58:12', 'Penjaga', NULL),
+(10, 'PB/TA/0010', 4, '2018-08-20', 360000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-20 23:54:05', '2018-08-20 23:54:05', 'Penjaga', NULL),
+(11, 'PB/TA/0011', 4, '2018-08-21', 450000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-21 00:04:42', '2018-08-21 00:04:42', 'Penjaga', NULL),
+(12, 'PB/TA/0012', 4, '2018-08-21', 44500, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-21 00:16:13', '2018-08-21 00:16:13', 'Penjaga', NULL),
+(13, 'PB/TA/0013', 4, '2018-08-21', 900000, NULL, NULL, 'Pembelian Tunai', 'OK', '2018-08-21 00:46:35', '2018-08-21 00:46:35', 'Penjaga', NULL);
 
 -- --------------------------------------------------------
 
@@ -319,7 +343,26 @@ CREATE TABLE `pembelian_details` (
 INSERT INTO `pembelian_details` (`id`, `id_pembelian`, `id_barang`, `tanggal`, `jumlah_beli`, `sub_total_harga`, `status`, `updated_at`, `created_at`, `createdby`, `updatedby`) VALUES
 (1, 1, 32, '2018-03-18', 3, 1350000, NULL, '2018-03-18 09:22:25', '2018-03-18 09:22:25', 'Penjaga', NULL),
 (2, 1, 23, '2018-03-18', 20, 24000, NULL, '2018-03-18 09:22:25', '2018-03-18 09:22:25', 'Penjaga', NULL),
-(3, 1, 24, '2018-03-18', 5, 6000, NULL, '2018-03-18 09:22:26', '2018-03-18 09:22:26', 'Penjaga', NULL);
+(3, 1, 24, '2018-03-18', 5, 6000, NULL, '2018-03-18 09:22:26', '2018-03-18 09:22:26', 'Penjaga', NULL),
+(4, 2, 32, '2018-08-10', 10, 4500000, NULL, '2018-08-10 07:49:01', '2018-08-10 07:49:01', 'Penjaga', NULL),
+(5, 6, 22, '2018-08-10', 20, 24000, NULL, '2018-08-10 08:38:35', '2018-08-10 08:38:35', 'Penjaga', NULL),
+(6, 7, 22, '2018-08-18', 4, 4800, NULL, '2018-08-18 00:14:41', '2018-08-18 00:14:41', 'Penjaga', NULL),
+(7, 7, 23, '2018-08-18', 10, 12000, NULL, '2018-08-18 00:14:41', '2018-08-18 00:14:41', 'Penjaga', NULL),
+(8, 9, 22, '2018-08-20', 100, 120000, NULL, '2018-08-20 11:58:13', '2018-08-20 11:58:13', 'Penjaga', NULL),
+(9, 9, 23, '2018-08-20', 100, 120000, NULL, '2018-08-20 11:58:13', '2018-08-20 11:58:13', 'Penjaga', NULL),
+(10, 9, 24, '2018-08-20', 100, 120000, NULL, '2018-08-20 11:58:13', '2018-08-20 11:58:13', 'Penjaga', NULL),
+(11, 9, 25, '2018-08-20', 100, 450000, NULL, '2018-08-20 11:58:13', '2018-08-20 11:58:13', 'Penjaga', NULL),
+(12, 9, 26, '2018-08-20', 100, 80000, NULL, '2018-08-20 11:58:14', '2018-08-20 11:58:14', 'Penjaga', NULL),
+(13, 10, 22, '2018-08-20', 100, 120000, NULL, '2018-08-20 23:54:05', '2018-08-20 23:54:05', 'Penjaga', NULL),
+(14, 10, 23, '2018-08-20', 100, 120000, NULL, '2018-08-20 23:54:05', '2018-08-20 23:54:05', 'Penjaga', NULL),
+(15, 10, 24, '2018-08-20', 100, 120000, NULL, '2018-08-20 23:54:06', '2018-08-20 23:54:06', 'Penjaga', NULL),
+(16, 11, 25, '2018-08-21', 100, 450000, NULL, '2018-08-21 00:04:42', '2018-08-21 00:04:42', 'Penjaga', NULL),
+(17, 12, 22, '2018-08-21', 5, 6000, NULL, '2018-08-21 00:16:13', '2018-08-21 00:16:13', 'Penjaga', NULL),
+(18, 12, 23, '2018-08-21', 5, 6000, NULL, '2018-08-21 00:16:13', '2018-08-21 00:16:13', 'Penjaga', NULL),
+(19, 12, 24, '2018-08-21', 5, 6000, NULL, '2018-08-21 00:16:14', '2018-08-21 00:16:14', 'Penjaga', NULL),
+(20, 12, 25, '2018-08-21', 5, 22500, NULL, '2018-08-21 00:16:14', '2018-08-21 00:16:14', 'Penjaga', NULL),
+(21, 12, 26, '2018-08-21', 5, 4000, NULL, '2018-08-21 00:16:14', '2018-08-21 00:16:14', 'Penjaga', NULL),
+(22, 13, 32, '2018-08-21', 2, 900000, NULL, '2018-08-21 00:46:35', '2018-08-21 00:46:35', 'Penjaga', NULL);
 
 -- --------------------------------------------------------
 
@@ -368,7 +411,20 @@ CREATE TABLE `penjualans` (
 --
 
 INSERT INTO `penjualans` (`id`, `kode_penjualan`, `pelanggan`, `tanggal`, `total_harga_jual`, `total_bayar`, `total_kembalian`, `tipe_pembayaran`, `status`, `updated_at`, `created_at`, `createdby`, `updatedby`) VALUES
-(1, 'PJ/TA/0001', 'Pelanggan Umum', '2018-03-19', 1004750, 1005000, 250, 'Penjualan Tunai', 'OK', '2018-03-19 03:33:56', '2018-03-19 03:33:56', 'Penjaga', NULL);
+(1, 'PJ/TA/0001', 'Pelanggan Umum', '2018-03-19', 1004750, 1005000, 250, 'Penjualan Tunai', 'OK', '2018-03-19 03:33:56', '2018-03-19 03:33:56', 'Penjaga', NULL),
+(2, 'PJ/TA/0002', NULL, '2016-08-10', 7500, 20000, 12500, 'Penjualan Tunai', 'OK', '2018-08-10 08:01:29', '2016-08-10 08:01:29', 'Penjaga', NULL),
+(3, 'PJ/TA/0003', NULL, '2016-08-13', 500000, 500000, 0, 'Penjualan Tunai', 'OK', '2018-08-13 04:05:16', '2016-08-13 04:05:16', 'Penjaga', NULL),
+(4, 'PJ/TA/0004', NULL, '2016-08-13', 500000, 500000, 0, 'Penjualan Tunai', 'OK', '2018-08-13 04:05:43', '2016-08-13 04:05:43', 'Penjaga', NULL),
+(5, 'PJ/TA/0005', NULL, '2018-08-13', 500000, 500000, 0, 'Penjualan Tunai', 'OK', '2018-08-13 04:06:51', '2018-08-13 04:06:51', 'Penjaga', NULL),
+(6, 'PJ/TA/0006', NULL, '2018-08-13', 4500, 5000, 500, 'Penjualan Tunai', 'OK', '2018-08-13 16:08:53', '2018-08-13 16:08:53', 'Penjaga', NULL),
+(7, 'PJ/TA/0007', NULL, '2018-08-20', 30000, 30000, NULL, 'Penjualan Tunai', 'OK', '2018-08-20 08:23:41', '2018-08-20 08:23:41', 'Penjaga', NULL),
+(8, 'PJ/TA/0008', NULL, '2018-08-20', 15000, 20000, 5000, 'Penjualan Tunai', 'OK', '2018-08-20 08:25:27', '2018-08-20 08:25:27', 'Penjaga', NULL),
+(9, 'PJ/TA/0009', NULL, '2018-08-20', 91750, 100000, 8250, 'Penjualan Tunai', 'OK', '2018-08-20 12:07:45', '2018-08-20 12:07:45', 'Penjaga', NULL),
+(10, 'PJ/TA/0010', NULL, '2018-08-20', 270000, 300000, 30000, 'Penjualan Tunai', 'OK', '2018-08-20 12:12:52', '2018-08-20 12:12:52', 'Penjaga', NULL),
+(11, 'PJ/TA/0011', NULL, '2018-08-20', 555750, 600000, 44250, 'Penjualan Tunai', 'OK', '2018-08-20 23:40:42', '2018-08-20 23:40:42', 'Penjaga', NULL),
+(12, 'PJ/TA/0012', NULL, '2018-08-21', 300000, 300000, 0, 'Penjualan Tunai', 'OK', '2018-08-21 00:11:06', '2018-08-21 00:11:06', 'Penjaga', NULL),
+(13, 'PJ/TA/0013', NULL, '2018-08-21', 308750, 310000, 1250, 'Penjualan Tunai', 'OK', '2018-08-21 00:14:28', '2018-08-21 00:14:28', 'Penjaga', NULL),
+(14, 'PJ/TA/0014', NULL, '2018-08-21', 500000, 500000, 0, 'Penjualan Tunai', 'OK', '2018-08-21 00:46:58', '2018-08-21 00:46:58', 'Penjaga', NULL);
 
 -- --------------------------------------------------------
 
@@ -396,7 +452,30 @@ CREATE TABLE `penjualan_details` (
 
 INSERT INTO `penjualan_details` (`id`, `id_penjualan`, `id_barang`, `jumlah_jual`, `harga_jual_akhir`, `sub_total_harga`, `status`, `updated_at`, `created_at`, `createdby`, `updatedby`) VALUES
 (1, 1, 32, 2, 500000, 1000000, NULL, '2018-03-19 03:33:56', '2018-03-19 03:33:56', 'Penjaga', NULL),
-(2, 1, 25, 1, 4750, 4750, NULL, '2018-03-19 03:33:57', '2018-03-19 03:33:57', 'Penjaga', NULL);
+(2, 1, 25, 1, 4750, 4750, NULL, '2018-03-19 03:33:57', '2018-03-19 03:33:57', 'Penjaga', NULL),
+(3, 2, 23, 5, 1500, 7500, NULL, '2018-08-10 08:01:29', '2018-08-10 08:01:29', 'Penjaga', NULL),
+(4, 5, 32, 1, 500000, 500000, NULL, '2018-08-13 04:06:51', '2018-08-13 04:06:51', 'Penjaga', NULL),
+(5, 6, 23, 3, 1500, 4500, NULL, '2018-08-13 16:08:53', '2018-08-13 16:08:53', 'Penjaga', NULL),
+(6, NULL, 22, 3, 1500, 4500, NULL, '2018-08-20 08:00:18', '2018-08-20 08:00:18', 'Penjaga', NULL),
+(7, NULL, 22, 3, 1500, 4500, NULL, '2018-08-20 08:07:20', '2018-08-20 08:07:20', 'Penjaga', NULL),
+(8, NULL, 22, 20, 1500, 30000, NULL, '2018-08-20 08:21:55', '2018-08-20 08:21:55', 'Penjaga', NULL),
+(9, NULL, 22, 20, 1500, 30000, NULL, '2018-08-20 08:22:20', '2018-08-20 08:22:20', 'Penjaga', NULL),
+(10, 8, 23, 10, 1500, 15000, NULL, '2018-08-20 08:25:27', '2018-08-20 08:25:27', 'Penjaga', NULL),
+(11, 9, 22, 10, 1500, 15000, NULL, '2018-08-20 12:07:45', '2018-08-20 12:07:45', 'Penjaga', NULL),
+(12, 9, 23, 10, 1500, 15000, NULL, '2018-08-20 12:07:45', '2018-08-20 12:07:45', 'Penjaga', NULL),
+(13, 9, 24, 10, 1425, 14250, NULL, '2018-08-20 12:07:45', '2018-08-20 12:07:45', 'Penjaga', NULL),
+(14, 9, 25, 10, 4750, 47500, NULL, '2018-08-20 12:07:45', '2018-08-20 12:07:45', 'Penjaga', NULL),
+(15, 9, 26, 10, 0, 0, NULL, '2018-08-20 12:07:45', '2018-08-20 12:07:45', 'Penjaga', NULL),
+(16, 10, 22, 90, 1500, 135000, NULL, '2018-08-20 12:12:52', '2018-08-20 12:12:52', 'Penjaga', NULL),
+(17, 10, 23, 90, 1500, 135000, NULL, '2018-08-20 12:12:53', '2018-08-20 12:12:53', 'Penjaga', NULL),
+(18, 11, 24, 90, 1425, 128250, NULL, '2018-08-20 23:40:43', '2018-08-20 23:40:43', 'Penjaga', NULL),
+(19, 11, 25, 90, 4750, 427500, NULL, '2018-08-20 23:40:43', '2018-08-20 23:40:43', 'Penjaga', NULL),
+(20, 11, 26, 90, 0, 0, NULL, '2018-08-20 23:40:43', '2018-08-20 23:40:43', 'Penjaga', NULL),
+(21, 12, 22, 100, 1500, 150000, NULL, '2018-08-21 00:11:06', '2018-08-21 00:11:06', 'Penjaga', NULL),
+(22, 12, 23, 100, 1500, 150000, NULL, '2018-08-21 00:11:06', '2018-08-21 00:11:06', 'Penjaga', NULL),
+(23, 13, 24, 50, 1425, 71250, NULL, '2018-08-21 00:14:28', '2018-08-21 00:14:28', 'Penjaga', NULL),
+(24, 13, 25, 50, 4750, 237500, NULL, '2018-08-21 00:14:28', '2018-08-21 00:14:28', 'Penjaga', NULL),
+(25, 14, 32, 1, 500000, 500000, NULL, '2018-08-21 00:46:58', '2018-08-21 00:46:58', 'Penjaga', NULL);
 
 -- --------------------------------------------------------
 
@@ -628,11 +707,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'pemilik', 'admin@aisyah.com', '$2y$10$qeQ4aXTQV5ceTo7gFSgtSebHhTgShT90uettXrc.rO5B42MEOg8di', 'svzbWLrgd1luxXbsbmzNRahTpkFSWkT8dBhNiEBQSJcz3cDUkXSATqneVJtz', '2017-10-25 02:03:37', '2017-10-25 02:03:37'),
-(2, 'Penjaga', 'penjaga', 'member@aisyah.com', '$2y$10$IuFd7nZOEy8Xc4ts98oiEu4kPyxBG8dwdrTZENc3lTSfif4L1/7oi', '5GlAS1NVRftvgTVHFd7SMwuUPYPkSfojCC0PRVWuEGJrTRWEpx3omDWKMm3v', '2017-10-25 02:03:37', '2017-10-25 02:03:37'),
-(8, 'Shaf Pro', '1234', '123@gmail.com', '$2y$10$fhS.iBzIwPAjhOFV14PAPeIbGEprTxhbK73eOMXin1vObhgb81Bju', NULL, '2017-11-26 15:28:34', '2017-11-26 15:28:34'),
-(9, 'Agal', 'penjaga_agal', 'agal@gmail.com', '$2y$10$5JXGkCCdEiSulR7219mhxONX9nxkkWuk7kJSgdovEGLRxxr8fbIKq', NULL, '2018-03-10 08:13:07', '2018-03-10 08:13:07'),
-(10, 'penjaga_lamo', 'penjaga_lamo', 'penjagalamo@gmail.com', '$2y$10$LvwfdqKJdGAs6U1niddqIe/VJ9Q1spWQlLUmHmi3zCo/m2GnCbGiq', NULL, '2018-03-11 10:13:07', '2018-03-11 10:13:07');
+(1, 'Administrator', 'pemilik', 'admin@aisyah.com', '$2y$10$qeQ4aXTQV5ceTo7gFSgtSebHhTgShT90uettXrc.rO5B42MEOg8di', 'zNCmXKnaL8u1iXsLrIbFmDMcD4jxCBvXT8jxnMUDpF4GQ8N8wZrl7pWCnCXQ', '2017-10-25 02:03:37', '2017-10-25 02:03:37'),
+(2, 'Penjaga', 'penjaga', 'member@aisyah.com', '$2y$10$5JXGkCCdEiSulR7219mhxONX9nxkkWuk7kJSgdovEGLRxxr8fbIKq', 'm1nm3M0khJ3eyAmYBljOsMsWyJnWaZO8r5fXUDMBsb10BgB9eUiBN5aKhKbR', '2017-10-25 02:03:37', '2017-10-25 02:03:37'),
+(9, 'Agal', 'penjaga_agal', 'agal@gmail.com', '$2y$10$5JXGkCCdEiSulR7219mhxONX9nxkkWuk7kJSgdovEGLRxxr8fbIKq', 'sKwAD8P5LE7QB6LxAJX28jD5jNIt6nR8ClUq7LzRsftDrqoje50kAmZt4unR', '2018-03-10 08:13:07', '2018-03-10 08:13:07');
 
 --
 -- Indexes for dumped tables
@@ -679,7 +756,8 @@ ALTER TABLE `config`
 ALTER TABLE `kas`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `kode_kas` (`kode_kas`),
-  ADD KEY `id_penjualan` (`id_penjualan`);
+  ADD KEY `id_penjualan` (`id_penjualan`),
+  ADD KEY `id_pembelian` (`id_pembelian`);
 
 --
 -- Indexes for table `migrations`
@@ -823,7 +901,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` bigint(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `barang_kategori`
@@ -835,7 +913,7 @@ ALTER TABLE `barang_kategori`
 -- AUTO_INCREMENT for table `barang_persediaans`
 --
 ALTER TABLE `barang_persediaans`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `barang_unit`
@@ -847,25 +925,25 @@ ALTER TABLE `barang_unit`
 -- AUTO_INCREMENT for table `config`
 --
 ALTER TABLE `config`
-  MODIFY `idconfig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idconfig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `kas`
 --
 ALTER TABLE `kas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pembelians`
 --
 ALTER TABLE `pembelians`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pembelian_details`
 --
 ALTER TABLE `pembelian_details`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `penjualan`
@@ -877,13 +955,13 @@ ALTER TABLE `penjualan`
 -- AUTO_INCREMENT for table `penjualans`
 --
 ALTER TABLE `penjualans`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `penjualan_details`
 --
 ALTER TABLE `penjualan_details`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `returpembelian`
@@ -919,13 +997,13 @@ ALTER TABLE `tbs_pembelian_details`
 -- AUTO_INCREMENT for table `tbs_penjualan_details`
 --
 ALTER TABLE `tbs_penjualan_details`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -949,7 +1027,8 @@ ALTER TABLE `barang_persediaans`
 -- Constraints for table `kas`
 --
 ALTER TABLE `kas`
-  ADD CONSTRAINT `kas_ibfk_1` FOREIGN KEY (`id_penjualan`) REFERENCES `penjualans` (`id`);
+  ADD CONSTRAINT `kas_ibfk_1` FOREIGN KEY (`id_penjualan`) REFERENCES `penjualans` (`id`),
+  ADD CONSTRAINT `kas_ibfk_2` FOREIGN KEY (`id_pembelian`) REFERENCES `pembelians` (`id`);
 
 --
 -- Constraints for table `pembelians`
