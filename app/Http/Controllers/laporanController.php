@@ -15,6 +15,7 @@ use App\Supplier;
 use App\Penjualan;
 use App\Pembelian;
 use App\BarangPersediaan;
+use App\DetailPenjualan;
 
 class laporanController extends Controller
 {
@@ -72,7 +73,7 @@ class laporanController extends Controller
       $user = $request->user();
       if ($user->hasRole('penjaga') || $user->hasRole('pemilik')) {
         //$persediaans = Barang::orderBy('nama_barang', 'desc')->get();
-        $persediaans = BarangPersediaan::select(DB::raw("nama_barang, harga_jual, tanggal_beli, stok, tanggal_jual, nama_supplier, stok_beli, stok_jual"))
+        $persediaans = BarangPersediaan::select(DB::raw("nama_barang, harga_jual, harga_beli, tanggal_beli, stok, tanggal_jual, nama_supplier, stok_beli, stok_jual"))
                         ->join('barang', 'barang_persediaans.id_barang', '=', 'barang.id')
                         ->join('suppliers', 'barang_persediaans.id_supplier', '=', 'suppliers.id')
                         ->whereBetween('tanggal_beli', [$request->tanggalawal, $request->tanggalakhir])
@@ -85,36 +86,36 @@ class laporanController extends Controller
     public function grafikpenjualan(Request $request){
       $user = $request->user();
 
-      if ($user->hasRole('penjaga') || $user->hasRole('pemilik')) {
-        // $persediaans = Barang::orderBy('nama_barang', 'desc')->get();
-        $chart = Charts::database(Penjualan::all(), 'line', 'google')
-                ->title('Grafik Penjualan')
-                ->elementLabel("Total")
-                ->dimensions(1000, 500)
-                ->responsive(false)
-                ->groupByMonth('2018', true);
+      if ($user->hasRole('penjaga') || $user->hasRole('pemilik')) {                       
+        
+        $data = Penjualan::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), 2018)->orderBy('tanggal','asc')->get(); 
+        $chart = Charts::create('bar', 'highcharts')
+             ->title('Grafik Penjualan 2018')
+             ->elementLabel('Total Harga Penjualan')
+             ->labels($data->pluck('tanggal')) 
+             ->values($data->pluck('total_harga_jual'))
+             ->responsive(true);
+
         return view('grafik.index',['chart'=>$chart]);
 
       }
     }
 
     public function lihatgrafik(Request $request){
-      $user = $request->user();
+      $user = $request->user(); 
 
-      if ($user->hasRole('penjaga') || $user->hasRole('pemilik')) {
-        // $persediaans = Barang::orderBy('nama_barang', 'desc')->get();
-        // dd($request->all());
-        $chart = Charts::database(DB::table('penjualans')
-                  // ->whereBetween('tanggal', [$request->tanggalawal, $request->tanggalakhir])
-                  // ->where('tanggal', [$request->tanggalawal, $request->tanggalakhir])
-                  ->get(), 'line', 'google')
-                  ->title('Grafik Penjualan')
-                  ->elementLabel("Total")
-                  ->dimensions(1000, 500)
-                  ->responsive(false)
-                  ->groupByMonth($request->tahun, true);
-                  // dd($chart);
-          return view('grafik.index',['chart'=>$chart]);
+      if ($user->hasRole('penjaga') || $user->hasRole('pemilik')) {        
+      $title = "Grafik Penjualan ".$request->tahun ;                  
+
+      $data = Penjualan::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), $request->tahun)->orderBy('tanggal','asc')->get();        
+      $chart = Charts::create('bar', 'highcharts')
+           ->title($title)
+           ->elementLabel('Total Harga Penjualan')
+           ->labels($data->pluck('tanggal')) 
+           ->values($data->pluck('total_harga_jual'))
+           ->responsive(true);
+
+        return view('grafik.index',['chart'=>$chart]);
 
       }
     }
@@ -147,7 +148,7 @@ class laporanController extends Controller
     public function cetak_persediaan(Request $request,$awal,$akhir){
       $user = $request->user();
       if ($user->hasRole('penjaga') || $user->hasRole('pemilik')) {      
-        $persediaans = BarangPersediaan::select(DB::raw("nama_barang, harga_jual, tanggal_beli, stok, tanggal_jual, nama_supplier, stok_beli, stok_jual"))
+        $persediaans = BarangPersediaan::select(DB::raw("nama_barang, harga_jual, harga_beli, tanggal_beli, stok, tanggal_jual, nama_supplier, stok_beli, stok_jual"))
                         ->join('barang', 'barang_persediaans.id_barang', '=', 'barang.id')
                         ->join('suppliers', 'barang_persediaans.id_supplier', '=', 'suppliers.id')
                         ->whereBetween('tanggal_beli', [$awal, $akhir])
